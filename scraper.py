@@ -14,33 +14,17 @@ for item in taskList:
     task = soup.find("div", {"id": item})
     prototype = task.find("li")
     prototype = prototype.find("code")
-    if prototype:
-        print(prototype.text)
-
-
-# prototype = soup.find_all(string=("Prototype: "))
-# filename = soup.find_all(string=("File: "))
-# taskList = [prototype, filename]
-# list[index].append([taskList])
-
-
-# # Prototype Parser
-
-# row = soup.find_all(string=("Prototype: "))
-# for r in row:
-#     nextSib = r.nextSibling
-#     print(nextSib.text)
-
-# print('~~~~~~~~~~~~~~~~~~~')
-
-# # Filename Parser
-
-# row = soup.find_all(string=('File: '))
-# for r in row:
-#     nextSib = r.nextSibling
-#     print(nextSib.text)
-
-# print("~~~~~~~~~~~~~~~~~~~")
+    # if prototype:
+    #     print(prototype.text)
+    # Cringe work around to find the final item in the list (the filename)
+    fileName = task.find("div", {"class": "list-group-item"})
+    fileName = fileName.findAll("li")
+    fileName = fileName[-1].text[6:]
+    f = open(fileName, "w")
+    f.write(
+        f"#!/usr/bin/python3\n{prototype.text if prototype else '# Failed to grab prototype, sorry'}\n"
+    )
+    f.close()
 
 # Terminal Parser
 
