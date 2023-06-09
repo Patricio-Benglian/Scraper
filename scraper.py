@@ -2,6 +2,14 @@
 import re
 from bs4 import BeautifulSoup
 
+
+def protoParse(body):
+    row = task.find_all(string=("Prototype: "))
+    for r in row:
+        nextSib = r.nextSibling
+        return nextSib
+
+
 # open downloaded HTML file
 file = open("test.txt", "r+")
 # pass html file into beautiful soup, parse with html.parser
@@ -13,8 +21,9 @@ taskList = [item["id"] for item in soup.find_all("div", id=re.compile("^task-num
 
 for item in taskList:
     task = soup.find("div", {"id": item})
-    prototype = task.find("code")
-    print(prototype.text)
+    print(protoParse(task).text)
+    # prototype = task.find("code")
+    # print(prototype.text)
 
 
 # tasks = [item["data-role"] for item in soup.find_all("div", attrs={"data-role": True})]
