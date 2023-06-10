@@ -22,8 +22,14 @@ def mainNameParse(terminal):
     if terminal:
         terminal = terminal.split("\n")
         terminal[0] = terminal[0].split(" ")
-        mainName = terminal[0][2]
-        return mainName
+        try:
+            mainName = terminal[0][2]
+        except IndexError:
+            print("Possible task without main detected uwu")
+        try:
+            return mainName
+        except UnboundLocalError:
+            return
 
 
 def mainContentParse(terminal):
@@ -37,6 +43,8 @@ def mainContentParse(terminal):
                 counter += 1
             if counter == 1:
                 end = index
+        if counter == 0:
+            return None
         for i in range(1, end):
             content.append(terminal[i])
         return content
