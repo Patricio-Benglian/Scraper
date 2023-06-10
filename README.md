@@ -1,6 +1,7 @@
 ## WIP Scraper.
 
-Currently does not actually get the html from intranet, you have to download it manually and pass it into the program. (Authentication issues)
+Creates files from intranet, both main file and and working file. Currently only considers the most generic tasks and thus will not work sometimes.
+Currently does not get content from website automatically, you have to download it manually.
 
 ## How to use it
 - Right click intranet page, click 'save as' and save it as 'test.txt'. 
@@ -20,12 +21,13 @@ I've managed to:
 
 - Create Working File with prototyp
 - Give permissions to files
+- Create main file with content
 
 ## Still haven't managed to:
-- Parse main file content and name from example
-- Probably utilize exceptions
+- Consider exceptions
+- Add usage for C files too
 
 ## Probably easy to do but not done yet:
-- Create the files with the correct content
+- Clean up code some more
 - Remove spaghetti code
 - Add sauce to spaghetti code
