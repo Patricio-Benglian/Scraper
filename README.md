@@ -18,7 +18,8 @@ Installation:
 ## Progress:
 I've managed to:
 
-- Create Working File with prototype
+- Create Working File with prototyp
+- Give permissions to files
 
 ## Still haven't managed to:
 - Parse main file content and name from example
