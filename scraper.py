@@ -1,29 +1,43 @@
 #!/usr/bin/python3
 import re
 from bs4 import BeautifulSoup
+from os import chmod
+
+
+# For Future: prototype = find[...].text and then try/exception if it doesnt work?
+def protoParse(task):
+    prototype = task.find("li")
+    prototype = prototype.find("code")
+    return prototype.text if prototype else None
+
+
+def fileParse(task):
+    fileName = task.find("div", {"class": "list-group-item"})
+    fileName = fileName.findAll("li")
+    fileName = fileName[-1].text[6:]
+    return fileName
+
 
 # open downloaded HTML file
 file = open("test.txt", "r+")
 # pass html file into beautiful soup, parse with html.parser
 soup = BeautifulSoup(file, "html.parser")
+file.close()
 
 # grabs id name of all task divs
 taskList = [item["id"] for item in soup.find_all("div", id=re.compile("^task-num-"))]
 # iterates through id names and grabs entire html block, then parses values inside it
 for item in taskList:
     task = soup.find("div", {"id": item})
-    prototype = task.find("li")
-    # For Future: prototype = find[...].text and then try/exception if it doesnt work?
-    prototype = prototype.find("code")
-    # Cringe work around to find the final item in the list (the filename)
-    fileName = task.find("div", {"class": "list-group-item"})
-    fileName = fileName.findAll("li")
-    fileName = fileName[-1].text[6:]
+    prototype = protoParse(task)
+    fileName = fileParse(task)
     f = open(fileName, "w")
+    chmod(fileName, 777)
     f.write(
         f"#!/usr/bin/python3\n{prototype if prototype else '# Failed to grab prototype, UmU sorry'}\n"
     )
     f.close()
+
 
 # Terminal Parser
 
