@@ -18,6 +18,48 @@ def fileParse(task):
     return fileName
 
 
+def mainNameParse(terminal):
+    if terminal:
+        terminal = terminal.split("\n")
+        terminal[0] = terminal[0].split(" ")
+        mainName = terminal[0][2]
+        return mainName
+
+
+def mainContentParse(terminal):
+    if terminal:
+        terminal = terminal.split("\n")
+        counter = 0
+        content = []
+        for index, value in enumerate(terminal):
+            found = value.find(":~/$")
+            if found != -1:
+                counter += 1
+            if counter == 1:
+                end = index
+        for i in range(1, end):
+            content.append(terminal[i])
+        return content
+
+
+def createMain(content, mainName):
+    if mainName:
+        main = open(mainName, "w")
+        chmod(mainName, 777)
+        for i in content:
+            main.write(i + "\n")
+        main.close
+
+
+def createFile(prototype, fileName):
+    f = open(fileName, "w")
+    chmod(fileName, 777)
+    f.write(
+        f"#!/usr/bin/python3\n{prototype if prototype else '# Failed to grab prototype, UmU sorry'}\n"
+    )
+    f.close()
+
+
 # open downloaded HTML file
 file = open("test.txt", "r+")
 # pass html file into beautiful soup, parse with html.parser
@@ -31,24 +73,11 @@ for item in taskList:
     task = soup.find("div", {"id": item})
     prototype = protoParse(task)
     fileName = fileParse(task)
-    f = open(fileName, "w")
-    chmod(fileName, 777)
-    f.write(
-        f"#!/usr/bin/python3\n{prototype if prototype else '# Failed to grab prototype, UmU sorry'}\n"
-    )
-    f.close()
-
-
-# Terminal Parser
-
-# row = soup.find(string=re.compile('guillaume@ubuntu'))
-# # divides terminal example into newlines. Need to parse 'cat main' out of it, find filename after cat, and then copy all text after the cat up until
-# #the next terminal prompt
-# row.split('\n')
-# index = row.find('-main')
-# print (index)
-# print (row[index])
-
+    terminal = task.find(string=re.compile("guillaume@ubuntu"))
+    mainName = mainNameParse(terminal)
+    content = mainContentParse(terminal)
+    createMain(content, mainName)
+    createFile(prototype, fileName)
 
 ## Get stuff that doesnt work
 
