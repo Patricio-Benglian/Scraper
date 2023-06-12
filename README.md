@@ -26,6 +26,8 @@ I've managed to:
 ## Still haven't managed to:
 - Consider exceptions
 - Add usage for C files too
+- Check if files already exist so as to not overwrite them
+- Ask for confirmation before making main files (per Mateo's request)
 
 ## Probably easy to do but not done yet:
 - Clean up code some more
