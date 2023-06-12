@@ -33,3 +33,5 @@ I've managed to:
 - Clean up code some more
 - Remove spaghetti code
 - Add sauce to spaghetti code
+- Apologize in terminal instead of in prototype area on failure
+- make it not spam the terminal if it fails several times (for example, a lot of tasks that do not utilize prototypes)
