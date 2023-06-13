@@ -29,6 +29,7 @@ I've managed to:
 - Check if files already exist so as to not overwrite them
 - Ask for confirmation before making main files (per Mateo's request)
 - Confirm prototype before copying it to file (check if text = "Prototype: " basically)
+- if multiple filenames, assume first?
 
 ## Probably easy to do but not done yet:
 - Clean up code some more
