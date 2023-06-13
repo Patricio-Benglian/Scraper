@@ -26,8 +26,14 @@ I've managed to:
 ## Still haven't managed to:
 - Consider exceptions
 - Add usage for C files too
+- Check if files already exist so as to not overwrite them
+- Ask for confirmation before making main files (per Mateo's request)
+- Confirm prototype before copying it to file (check if text = "Prototype: " basically)
+- if multiple filenames, assume first?
 
 ## Probably easy to do but not done yet:
 - Clean up code some more
 - Remove spaghetti code
 - Add sauce to spaghetti code
+- Apologize in terminal instead of in prototype area on failure
+- make it not spam the terminal if it fails several times (for example, a lot of tasks that do not utilize prototypes)
