@@ -31,6 +31,7 @@ I've managed to:
 - Ask for confirmation before making main files (per Mateo's request)
 - Confirm prototype before copying it to file (check if text = "Prototype: " basically)
 - if multiple filenames, assume first?
+- if directory, create directory?
 
 ## Probably easy to do but not done yet:
 - Clean up code some more
