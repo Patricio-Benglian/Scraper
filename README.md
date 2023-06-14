@@ -24,9 +24,8 @@ I've managed to:
 - Create main file with content
 
 ## Still haven't managed to:
-- If for some reason you exec the script from /usr/bin it doesnt work for filenames with lists?
 - Consider exceptions
-- Add usage for C files too
+- Add option for C files too
 - Check if files already exist so as to not overwrite them
 - Ask for confirmation before making main files (per Mateo's request)
 - Confirm prototype before copying it to file (check if text = "Prototype: " basically)
