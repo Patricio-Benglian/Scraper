@@ -15,10 +15,10 @@ def protoParse(task):
 def fileParse(task):
     fileName = task.find("div", {"class": "list-group-item"})
     fileName = fileName.findAll("li")
-    fileName = fileName[-1].text[6:]
-    if fileName.find(",") != -1:
-        end = fileName.find(",")
-        fileName = fileName[:end]
+    fileName = fileName[-1].text
+    end = fileName.find(",")
+    fileName = fileName[6:end]
+    print(fileName)
     return fileName
 
 
