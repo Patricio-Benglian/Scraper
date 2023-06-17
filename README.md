@@ -38,3 +38,4 @@ I've managed to:
 - Add sauce to spaghetti code
 - Apologize in terminal instead of in prototype area on failure
 - make it not spam the terminal if it fails several times (for example, a lot of tasks that do not utilize prototypes)
+- add documentation areas for file and prototype
