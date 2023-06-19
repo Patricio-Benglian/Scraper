@@ -17,8 +17,8 @@ def fileParse(task):
     fileName = fileName.findAll("li")
     fileName = fileName[-1].text
     end = fileName.find(",")
-    fileName = fileName[6:end]
-    print(fileName)
+    if end != -1:
+        fileName = fileName[6:end]
     return fileName
 
 
