@@ -19,6 +19,8 @@ def fileParse(task):
     end = fileName.find(",")
     if end != -1:
         fileName = fileName[6:end]
+    else:
+        fileName = fileName[6:]
     return fileName
 
 
