@@ -12,6 +12,13 @@ Currently does not get content from website automatically, you have to download 
 - Do NOT create -main files: <code>-nm</code>
 - Overwrite files: <code>-ow</code>
 
+Examples:
+- <code>./scraper.py</code> to create all files not already in directory (main and normal)
+- <code>./scraper.py -nm</code> to create only the files with no main files
+- <code>./scraper.py -ow</code> to overwrite all files (main and normal)
+- <code>./scraper.py -ow -nm</code> to overwrite all files without creating main files
+
+
 If it fails to grab a prototype, it will apologize.
 Any other failures, I'm still not sure what it will do.
 
