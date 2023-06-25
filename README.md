@@ -31,6 +31,8 @@ I've managed to:
 - Confirm prototype before copying it to file (check if text = "Prototype: " basically)
 - if multiple filenames, assume first?
 - if directory, create directory?
+- utilize cookies to get page data without download
+- utilize input to get cookie, then overwrite itself to save cookie permanently into script? lol
 
 ## Probably easy to do but not done yet:
 - Clean up code some more
