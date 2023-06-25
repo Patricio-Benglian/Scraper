@@ -60,11 +60,12 @@ def mainContentParse(terminal):
 
 def createMain(content, mainName):
     if mainName:
-        main = open(mainName, "w")
-        chmod(mainName, 777)
-        for i in content:
-            main.write(i + "\n")
-        main.close
+        if not os.path.isfile(mainName) or overWrite is True:
+            main = open(mainName, "w")
+            chmod(mainName, 777)
+            for i in content:
+                main.write(i + "\n")
+            main.close
 
 
 def createFile(prototype, fileName):
@@ -72,7 +73,7 @@ def createFile(prototype, fileName):
         f = open(fileName, "w")
         chmod(fileName, 777)
         f.write(
-            f"#!/usr/bin/python3\n{prototype if prototype else '# Failed to grab prototype, UmU sorry'}\n"
+            f"#!/usr/bin/python3\n'''\n{fileName[:-3]} module\n'''\n{prototype if prototype else '# Failed to grab prototype, UmU sorry'}\n"
         )
         f.close()
 
