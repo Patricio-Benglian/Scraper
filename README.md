@@ -6,7 +6,7 @@ Currently does not get content from website automatically, you have to download 
 ## How to use it
 - Right click intranet page, click 'save as'. 
 - Drag file to same location as scraper.py (or have scraper.py in your /user/local/bin).
-- Run scraper.py
+- Run scraper.py while in desired directory
 
 ## ARGUMENTS
 - Do NOT create -main files: <code>-nm</code>
