@@ -30,12 +30,11 @@ Installation:
 ## Progress:
 I've managed to:
 
-- Create Working File with prototyp
-- Give permissions to files
-- Create main file with content
+- Create Working File with prototype and documentation
+- Create main file with content (most of the time)
+- Give permissions to all files
 - Check if files already exist so as to not overwrite them
 - Optional Main file creation (per Mateo's request)
-- Add documentation to file
 
 ## Still haven't managed to:
 - Consider exceptions
