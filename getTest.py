@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Still a WIP and sucks!
+"""
 import requests
 
 url = "https://intranet.hbtn.io/projects/2182"
