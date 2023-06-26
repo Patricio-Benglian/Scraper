@@ -70,12 +70,16 @@ def createMain(content, mainName):
 
 def createFile(prototype, fileName):
     if not os.path.isfile(fileName) or overWrite is True:
-        f = open(fileName, "w")
-        chmod(fileName, 777)
-        f.write(
-            f"#!/usr/bin/python3\n'''\n{fileName[:-3]} module\n'''\n{prototype if prototype else '# Failed to grab prototype, UmU sorry'}\n"
-        )
-        f.close()
+        try:
+            f = open(fileName, "w")
+            chmod(fileName, 777)
+            f.write(
+                f"#!/usr/bin/python3\n'''\n{fileName[:-3]} module\n'''\n{prototype if prototype else '# Failed to grab prototype, UmU sorry'}\n"
+            )
+            f.close()
+        except Exception:
+            pass
+
 
 
 # Grabs .html file, checks theres only one, then opens
