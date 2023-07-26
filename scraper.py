@@ -94,12 +94,16 @@ global noMain
 noMain = False
 global overWrite
 overWrite = False
+global noContent
+noContent = False
 if len(argv) != 1:
     for arg in argv:
         if arg == "-nm":
             noMain = True
         if arg == "-ow":
             overWrite = True
+        if arg == "-nc":
+            noContent = True
 
 # grabs id name of all task divs
 taskList = [item["id"] for item in soup.find_all("div", id=re.compile("^task-num-"))]
@@ -110,7 +114,8 @@ for item in taskList:
     fileName = fileParse(task)
     terminal = task.find(string=re.compile("guillaume@ubuntu"))
     mainName = mainNameParse(terminal)
-    content = mainContentParse(terminal)
+    if not noContent:
+        content = mainContentParse(terminal)
     if noMain is False:
         createMain(content, mainName)
     createFile(prototype, fileName)
