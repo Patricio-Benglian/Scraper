@@ -73,10 +73,9 @@ def createFile(prototype, fileName):
         try:
             f = open(fileName, "w")
             chmod(fileName, 777)
-            if noContent is False:
-                f.write(
-                    f"#!/usr/bin/env python3\n'''\n{fileName[:-3]} module\n'''\n{prototype if prototype else '# Failed to grab prototype, UmU sorry'}\n"
-                )
+            f.write(
+                f"#!/usr/bin/env python3\n'''\n{fileName[:-3]} module\n'''\n{prototype if prototype else '# Failed to grab prototype, UmU sorry'}\n"
+            )
             f.close()
         except Exception:
             pass
