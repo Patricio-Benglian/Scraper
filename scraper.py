@@ -46,7 +46,7 @@ def mainContentParse(terminal):
         counter = 0
         content = []
         for index, value in enumerate(terminal):
-            found = value.find(":~/$")
+            found = value.find(":~")
             if found != -1:
                 counter += 1
             if counter == 1:
@@ -73,9 +73,9 @@ def createFile(prototype, fileName):
         try:
             f = open(fileName, "w")
             chmod(fileName, 777)
-            if noContent is True:
+            if noContent is False:
                 f.write(
-                    f"#!/usr/bin/python3\n'''\n{fileName[:-3]} module\n'''\n{prototype if prototype else '# Failed to grab prototype, UmU sorry'}\n"
+                    f"#!/usr/bin/env python3\n'''\n{fileName[:-3]} module\n'''\n{prototype if prototype else '# Failed to grab prototype, UmU sorry'}\n"
                 )
             f.close()
         except Exception:
@@ -95,6 +95,8 @@ global noMain
 noMain = False
 global overWrite
 overWrite = False
+global noContent
+noContent = True
 if len(argv) != 1:
     for arg in argv:
         if arg == "-nm":
@@ -109,7 +111,7 @@ for item in taskList:
     task = soup.find("div", {"id": item})
     prototype = protoParse(task)
     fileName = fileParse(task)
-    terminal = task.find(string=re.compile("guillaume@ubuntu"))
+    terminal = task.find(string=re.compile(":~"))
     mainName = mainNameParse(terminal)
     content = mainContentParse(terminal)
     if noMain is False:
